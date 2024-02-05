@@ -9,6 +9,7 @@ class Player { //PROPIEDADES DEL JUGADOR
         this.height = 50
         this.speed = 5
         this.sprite
+        this.timerId
         //this.isDead = false
     }
 

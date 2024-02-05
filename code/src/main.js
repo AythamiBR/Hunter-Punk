@@ -21,12 +21,14 @@ function countDown() {
 
 //ELEMENTOS DENTRO DEL MAPA
 let player = new Player(0, 0, map) //creamos una instancia para el jugador en la esquina superior izquierda y dentro del canvas
-let enemy = new Enemy(300, 300, map) // creamos una instancia para el enemigo 
+let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
+let enemy2 = new Enemy(600, 600, map, player)
 let treasure = new Treasure(500, 500, map)
+
 player.insertPlayer() //intersamos el jugador en el DOM 
 enemy.insertEnemy() //intersamos el enemigo en el DOM 
+enemy2.insertEnemy()
 treasure.insertTreasure()
-console.log(enemy)
 
 window.addEventListener('keydown', (e) => { //cuando pulsamos teclas
     switch (e.key) {
@@ -60,4 +62,11 @@ window.addEventListener('keyup', (e) => { //CUANDO LEVANTAMOS EL DEDO
         player.directionY = 0
     }
 })
-let intervalId = setInterval(() => player.movePlayer(), 24)
+
+function move(){
+    player.movePlayer()
+    enemy.followPlayer()
+    enemy2.followPlayer()
+}
+
+let intervalId = setInterval(move, 24)
