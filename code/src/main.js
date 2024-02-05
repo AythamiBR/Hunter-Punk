@@ -22,9 +22,10 @@ function countDown() {
 //ELEMENTOS DENTRO DEL MAPA
 let player = new Player(0, 0, map) //creamos una instancia para el jugador en la esquina superior izquierda y dentro del canvas
 let enemy = new Enemy(300, 300, map) // creamos una instancia para el enemigo 
-
+let treasure = new Treasure(500, 500, map)
 player.insertPlayer() //intersamos el jugador en el DOM 
 enemy.insertEnemy() //intersamos el enemigo en el DOM 
+treasure.insertTreasure()
 console.log(enemy)
 
 window.addEventListener('keydown', (e) => { //cuando pulsamos teclas

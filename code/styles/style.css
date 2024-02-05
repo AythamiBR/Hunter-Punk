@@ -1,10 +1,13 @@
 body {
-    justify-content: center;
+   /* justify-content: center;*/
     margin: 0;
     height: 100vh;
     display: flex;
+    background-color: black;
 }
-
+#info{
+    margin: auto;
+}
 #map {
     width: 1200px;
     height: 800px;
@@ -14,9 +17,7 @@ body {
     position: relative;
 }
 #timer {
-    position: absolute;
-    top: 0px;
-    left: 300px;
+    float: right;
     width: 200px;
     height: 200px;
     text-align: center;
@@ -24,13 +25,16 @@ body {
     font-size: 30px;
     font-weight: bold;
     font-family: 'Alfa Slab One', serif;
-    color: black;
+    color: #bc9b59;
     z-index: 1;
+    background-image: url("../assets/time.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #player {
     background-image: url("../assets/player.png");
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
@@ -38,9 +42,17 @@ body {
 
 .enemy{
     background-image: url("../assets/enemy.png");
-    width: 60px;
-    height: 60px;
+    width: 110px;
+    height: 110px;
     position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.treasure {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url("../assets/treasure.png");
     background-size: contain;
     background-repeat: no-repeat;
 }

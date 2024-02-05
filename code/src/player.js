@@ -25,7 +25,7 @@ class Player { //PROPIEDADES DEL JUGADOR
     movePlayer() { //MECANICA DEL MOVIMIENTO
         let nextX = this.x + this.speed * this.directionX
         let nextY = this.y + this.speed * this.directionY
-        if (nextX >= 0 && nextX <= 1160 && nextY >= 0 && nextY <= 745) {
+        if (nextX >= 0 && nextX <= 1110 && nextY >= 0 && nextY <= 700) {
             this.x += this.speed * this.directionX //actualizamos la x
             this.sprite.style.left = this.x + 'px' //la cambiamos en el DOM
             this.y += this.speed * this.directionY
