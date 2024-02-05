@@ -13,7 +13,7 @@ function countDown() {
             htmlCountDown.innerText = `${minutes} : 0${seconds % 60}`
     } else {
         clearInterval(timerId)
-        htmlCountDown.innerText = `TIME OVER`
+        htmlCountDown.innerText = `TIME'S OVER`
     }
 }
 // 2) HEALTH
@@ -37,6 +37,17 @@ let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el en
 let enemy2 = new Enemy(600, 600, map, player)
 enemy.insertEnemy() //intersamos el enemigo en el DOM 
 enemy2.insertEnemy()
+
+// 4) PISTA-TRAMPA
+let randomXPista = Math.floor(Math.random() * 1110)
+let randomYPista = Math.floor(Math.random() * 700)
+let randomXTrampa = Math.floor(Math.random() * 1110)
+let randomYTrampa = Math.floor(Math.random() * 700)
+let pista = new Pista(randomXPista, randomYPista, map)
+let trampa = new Trampa(randomXTrampa, randomYTrampa, map)
+pista.insertPista()
+trampa.insertTrampa()
+
 
 //AL PULSAR TECLAS
 window.addEventListener('keydown', (e) => { //cuando pulsamos teclas

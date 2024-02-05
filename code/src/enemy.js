@@ -9,7 +9,6 @@ class Enemy {
         this.width = 50
         this.height = 50
         this.direction = 0
-        this.timerId
     }
 
     insertEnemy() {

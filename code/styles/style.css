@@ -56,3 +56,11 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
 }
+.pista-trampa{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url("../assets/pista-trampa.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
