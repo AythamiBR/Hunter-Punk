@@ -1,7 +1,5 @@
-//MAPA
-const map = document.getElementById('map') //traemos el canvas para trabajar con el 
-
-/// COUNTDOWN 
+// DENTRO DE LA INFO
+// 1) COUNTDOWN 
 const htmlCountDown = document.getElementById('timer')
 const timerId = setInterval(countDown, 1000)
 let minutes = 1
@@ -18,18 +16,29 @@ function countDown() {
         htmlCountDown.innerText = `TIME OVER`
     }
 }
+// 2) HEALTH
+// 3) COMPASS
 
-//ELEMENTOS DENTRO DEL MAPA
-let player = new Player(0, 0, map) //creamos una instancia para el jugador en la esquina superior izquierda y dentro del canvas
-let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
-let enemy2 = new Enemy(600, 600, map, player)
-let treasure = new Treasure(500, 500, map)
+// DENTRO DEL MAPA
+const map = document.getElementById('map') //MAPA
 
-player.insertPlayer() //intersamos el jugador en el DOM 
-enemy.insertEnemy() //intersamos el enemigo en el DOM 
-enemy2.insertEnemy()
+// 1) TREASURE
+let randomX = Math.floor(Math.random() * 1110)
+let randomY = Math.floor(Math.random() * 700)
+let treasure = new Treasure(randomX, randomY, map)
 treasure.insertTreasure()
 
+// 2) PLAYER
+let player = new Player(0, 0, map) //creamos una instancia para el jugador en la esquina superior izquierda y dentro del canvas
+player.insertPlayer() //intersamos el jugador en el DOM 
+
+// 3) ENEMIES
+let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
+let enemy2 = new Enemy(600, 600, map, player)
+enemy.insertEnemy() //intersamos el enemigo en el DOM 
+enemy2.insertEnemy()
+
+//AL PULSAR TECLAS
 window.addEventListener('keydown', (e) => { //cuando pulsamos teclas
     switch (e.key) {
         case 'a':
@@ -54,7 +63,7 @@ window.addEventListener('keydown', (e) => { //cuando pulsamos teclas
             break
     }
 })
-window.addEventListener('keyup', (e) => { //CUANDO LEVANTAMOS EL DEDO
+window.addEventListener('keyup', (e) => { //CUANDO DEJAMOS DE PULSAR
     if (e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft' || e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') {
         player.directionX = 0
     }
@@ -63,10 +72,10 @@ window.addEventListener('keyup', (e) => { //CUANDO LEVANTAMOS EL DEDO
     }
 })
 
-function move(){
+function move(){ //PARA MOVER JUGADOR Y ENEMIGOS
     player.movePlayer()
     enemy.followPlayer()
     enemy2.followPlayer()
 }
 
-let intervalId = setInterval(move, 24)
+let intervalId = setInterval(move, 24) //UNICO INTERVALO
