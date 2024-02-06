@@ -22,20 +22,22 @@ function countDown() {
 // DENTRO DEL MAPA
 const map = document.getElementById('map') //MAPA
 
-// 1) TREASURE
-let randomX = Math.floor(Math.random() * 1110)
-let randomY = Math.floor(Math.random() * 700)
-let treasure = new Treasure(randomX, randomY, map)
-treasure.insertTreasure()
+
 
 // 2) PLAYER
 let player = new Player(0, 0, map) //creamos una instancia para el jugador en la esquina superior izquierda y dentro del canvas
 player.insertPlayer() //intersamos el jugador en el DOM 
 
+// 1) TREASURE
+let randomX = Math.floor(Math.random() * 1110)
+let randomY = Math.floor(Math.random() * 700)
+let treasure = new Treasure(randomX, randomY, map, player)
+treasure.insertTreasure()
+
 // 3) ENEMIES
-let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
+//let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
 //let enemy2 = new Enemy(600, 600, map, player)
-enemy.insertEnemy() //intersamos el enemigo en el DOM 
+//enemy.insertEnemy() //intersamos el enemigo en el DOM 
 //enemy2.insertEnemy()
 
 // 4) PISTA-TRAMPA
@@ -85,8 +87,9 @@ window.addEventListener('keyup', (e) => { //CUANDO DEJAMOS DE PULSAR
 
 function move(){ //PARA MOVER JUGADOR Y ENEMIGOS
     player.movePlayer()
-    enemy.followPlayer()
+   // enemy.followPlayer()
     //enemy2.followPlayer()
+    treasure.checkCollision()
 }
 
 let intervalId = setInterval(move, 24) //UNICO INTERVALO

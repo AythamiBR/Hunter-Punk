@@ -8,6 +8,12 @@ body {
 .hidden{
     display: none;
 }
+#h{
+    float: left;
+    font-size: 4em;
+    line-height: 1;
+    margin-right: .6rem;
+}
 #start{
     width: 1200px;
     height: 800px;
@@ -18,14 +24,15 @@ body {
     background-repeat: no-repeat;
     position: relative;
     color: white;
-    font-size: xx-large;
+    font-size: x-large;
+    
 }
 #foto{
     float: left;
 }
 #panel{
     float: right;
-    width: 300px;
+    width: 350px;
     text-align: center;
     justify-content: center;
 }
@@ -33,7 +40,10 @@ body {
     color:#bc9b59
 }
 #input{
-    height: 50px;
+    padding: 5px;
+    height: 40px;
+    width: 300px;
+
 
 }
 #map {
