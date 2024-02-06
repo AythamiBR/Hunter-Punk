@@ -1,29 +1,8 @@
-// DENTRO DE LA INFO
-// 1) COUNTDOWN 
-const htmlCountDown = document.getElementById('timer')
-// const timerId = setInterval(countDown, 1000)
-let minutes = 1
-let seconds = minutes * 60
-function countDown() {
-    if (minutes >= 0 && seconds >= 1) {
-        if (seconds % 60 === 0) minutes--
-        seconds--
-        htmlCountDown.innerText = `${minutes} : ${seconds % 60}`
-        if (seconds % 60 < 10)
-            htmlCountDown.innerText = `${minutes} : 0${seconds % 60}`
-    } else {
-        clearInterval(timerId)
-        htmlCountDown.innerText = `TIME'S OVER`
-    }
-}
-// 2) HEALTH
-// 3) COMPASS
-
-// DENTRO DEL MAPA
 const map = document.getElementById('map') //MAPA
 
 
 // 3) ENEMIES
+
 //let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
 //let enemy2 = new Enemy(600, 600, map, player)
 //enemy.insertEnemy() //intersamos el enemigo en el DOM 
@@ -38,7 +17,6 @@ let pista = new Pista(randomXPista, randomYPista, map)
 let trampa = new Trampa(randomXTrampa, randomYTrampa, map)
 pista.insertPista()
 trampa.insertTrampa()
-
 
 
 
@@ -57,6 +35,8 @@ class Game {
         this.player = new Player(0, 0, map)
         this.enemy = new Enemy(600, 600, map, this.player)
         this.treasure = new Treasure(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.htmlCountDown = document.getElementById('timer')
+        this.countDown = new Timer(1 , this.htmlCountDown )
         this.gameTimer = null
     }
 
@@ -133,7 +113,7 @@ class Game {
 
     start() {
         this.initialize()
-
+        this.countDown.start()
         this.gameTimer = setInterval(() => {
             this.player.movePlayer()
             if (!this.enemy.pause) this.enemy.followPlayer()
@@ -144,6 +124,7 @@ class Game {
                 let lives = this.player.removeLife()
 
                 if (lives === 0)  {
+                    this.countDown.stop()
                     this.lose()
                 } else {
                     this.enemy.pause = true
