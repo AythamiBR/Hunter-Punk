@@ -7,6 +7,7 @@ buttonStart.addEventListener('click', () => {
     map.removeAttribute('class', 'hidden')
     info.removeAttribute('class', 'hidden')
     start.setAttribute('class', 'hidden')
+    game.start()
     console.log(buttonStart)
 })
 

@@ -74,7 +74,7 @@ body {
 }
 #player {
     background-image: url("../assets/player.png");
-    width: 100px;
+    width: 87px;
     height: 100px;
     position: absolute;
     background-size: contain;
@@ -83,7 +83,7 @@ body {
 
 .enemy{
     background-image: url("../assets/enemy.png");
-    width: 110px;
+    width: 67px;
     height: 110px;
     position: absolute;
     background-size: contain;
@@ -99,7 +99,7 @@ body {
 }
 .pista-trampa{
     position: absolute;
-    width: 100px;
+    width: 60px;
     height: 100px;
     background-image: url("../assets/pista-trampa.png");
     background-size: contain;

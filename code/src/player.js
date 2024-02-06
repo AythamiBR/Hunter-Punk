@@ -5,8 +5,8 @@ class Player { //PROPIEDADES DEL JUGADOR
         this.parent = parent
         this.directionX = 0
         this.directionY = 0
-        this.width = 50
-        this.height = 50
+        this.width = 100
+        this.height = 100
         this.speed = 5
         this.sprite
         this.timerId
