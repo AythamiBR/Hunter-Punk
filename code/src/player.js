@@ -5,11 +5,12 @@ class Player { //PROPIEDADES DEL JUGADOR
         this.parent = parent
         this.directionX = 0
         this.directionY = 0
-        this.width = 100
+        this.width = 87
         this.height = 100
         this.speed = 5
         this.sprite
         this.timerId
+        this.lives = 3
         //this.isDead = false
     }
 
@@ -32,5 +33,10 @@ class Player { //PROPIEDADES DEL JUGADOR
             this.y += this.speed * this.directionY
             this.sprite.style.top = this.y + 'px'
         }
+    }
+
+    removeLife() {
+        this.lives--
+        return this.lives
     }
 }

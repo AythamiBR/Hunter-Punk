@@ -136,8 +136,23 @@ class Game {
 
         this.gameTimer = setInterval(() => {
             this.player.movePlayer()
-            this.enemy.followPlayer()
-            if(this.checkCollisionPlayerEnemy()) this.lose()
+            if (!this.enemy.pause) this.enemy.followPlayer()
+            console.log(`player Y : ${this.player.y}`)
+            console.log(`enemy Y: ${this.enemy.y}`)
+
+            if(!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
+                let lives = this.player.removeLife()
+
+                if (lives === 0)  {
+                    this.lose()
+                } else {
+                    this.enemy.pause = true
+                    setTimeout(() => {
+                        this.enemy.pause = false
+                    }, 3000)
+                }
+
+            }
             if (this.checkCollisionPlayerTreasure()) this.win()
             
         }, 20)

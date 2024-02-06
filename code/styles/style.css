@@ -79,6 +79,7 @@ body {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
+    border: 1px solid black;
 }
 
 .enemy{
@@ -88,6 +89,7 @@ body {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
+    border: 1px solid black;
 }
 .treasure {
     position: absolute;
