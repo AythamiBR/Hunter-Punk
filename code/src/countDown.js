@@ -1,11 +1,12 @@
 class Timer {
-    constructor( minutes, htmlElement ) {
+    constructor( minutes ) {
         this.minutes = minutes
         this.seconds = minutes * 60
         this.timerId  
-        this.htmlCountDown = htmlElement
+        this.htmlCountDown = document.getElementById('timer')
+        this.htmlCountDown.innerText = `${this.minutes} : 00` 
     }
-    
+
     countDown (){
         if (this.minutes >= 0 && this.seconds >= 1) {
             if (this.seconds % 60 === 0) this.minutes--
@@ -21,7 +22,6 @@ class Timer {
     }
 
     stop () { 
-            clearInterval(this.timerId)
-            
+        clearInterval(this.timerId)     
     }
 }

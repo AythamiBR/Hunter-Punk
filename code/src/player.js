@@ -37,6 +37,5 @@ class Player { //PROPIEDADES DEL JUGADOR
 
     removeLife() {
         this.lives--
-        return this.lives
     }
 }
