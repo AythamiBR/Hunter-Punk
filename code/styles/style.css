@@ -1,12 +1,40 @@
 body {
-   /* justify-content: center;*/
+    justify-content: center;
     margin: 0;
     height: 100vh;
     display: flex;
     background-color: black;
 }
-#info{
+.hidden{
+    display: none;
+}
+#start{
+    width: 1200px;
+    height: 800px;
+    text-align: center;
     margin: auto;
+    background-image: url("../assets/fondoStart.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+    font-size: xx-large;
+}
+#foto{
+    float: left;
+}
+#panel{
+    float: right;
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+}
+#title{
+    color:#bc9b59
+}
+#input{
+    height: 50px;
+
 }
 #map {
     width: 1200px;
@@ -16,11 +44,14 @@ body {
     margin: auto;
     position: relative;
 }
+#info {
+    margin: auto;
+    text-align: center;
+}
 #timer {
     float: right;
     width: 200px;
     height: 200px;
-    text-align: center;
     line-height: 50px;
     font-size: 30px;
     font-weight: bold;

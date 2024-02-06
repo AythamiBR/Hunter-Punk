@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HUNTER GAME</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="./src/start.js" defer></script>
     <script src="./src/pista-trampa.js" defer></script>
     <script src="./src/enemy.js" defer></script>
     <script src="./src/player.js" defer></script>
@@ -14,8 +15,20 @@
 </head>
 
 <body>
-    <div id="map"></div>
-    <div id="info">
+    <div id="start">
+        
+        <div id="foto"></div>
+        <div id="panel">
+            <h1 id="title">HUNTER PUNK</h1>
+            <p>Breve descripción del juego</p>
+            <label for="input">Introduce un nombre de jugador (máx 8 caracteres)</label>
+            <input type="text" id="input">
+            <button type="button" id="buttonStart">START</button>
+        </div>
+    </div>
+
+    <div id="map" class="hidden"></div>
+    <div id="info" class="hidden">
         <div id="timer"></div>
     </div>
 </body>

@@ -34,9 +34,9 @@ player.insertPlayer() //intersamos el jugador en el DOM
 
 // 3) ENEMIES
 let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
-let enemy2 = new Enemy(600, 600, map, player)
+//let enemy2 = new Enemy(600, 600, map, player)
 enemy.insertEnemy() //intersamos el enemigo en el DOM 
-enemy2.insertEnemy()
+//enemy2.insertEnemy()
 
 // 4) PISTA-TRAMPA
 let randomXPista = Math.floor(Math.random() * 1110)
@@ -86,7 +86,7 @@ window.addEventListener('keyup', (e) => { //CUANDO DEJAMOS DE PULSAR
 function move(){ //PARA MOVER JUGADOR Y ENEMIGOS
     player.movePlayer()
     enemy.followPlayer()
-    enemy2.followPlayer()
+    //enemy2.followPlayer()
 }
 
 let intervalId = setInterval(move, 24) //UNICO INTERVALO

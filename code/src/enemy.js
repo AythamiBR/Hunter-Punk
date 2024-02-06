@@ -5,7 +5,7 @@ class Enemy {
         this.parent = parent
         this.player = player
         this.sprite
-        this.speed = 3
+        this.speed = 2
         this.width = 50
         this.height = 50
         this.direction = 0
