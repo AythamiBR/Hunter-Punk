@@ -113,6 +113,7 @@ p{
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
+    border: 1px solid black;
 }
 
 .enemy{
@@ -122,6 +123,7 @@ p{
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
+    border: 1px solid black;
 }
 .treasure {
     position: absolute;

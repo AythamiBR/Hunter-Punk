@@ -6,9 +6,10 @@ class Enemy {
         this.player = player
         this.sprite
         this.speed = 2
-        this.width = 50
-        this.height = 50
+        this.width = 67
+        this.height = 110
         this.direction = 0
+        this.pause = false
     }
 
     insertEnemy() {
@@ -23,13 +24,11 @@ class Enemy {
     horizontalMove() {
         this.x += this.speed * this.direction
         this.sprite.style.left = this.x + 'px'
-        this.checkCollision()
     }
 
     verticalMove() {
         this.y += this.speed * this.direction
         this.sprite.style.top = this.y + 'px'
-        this.checkCollision()
     }
 
     calculateDistanceX() {
@@ -49,42 +48,23 @@ class Enemy {
     followPlayer() {
         let distanceY = this.calculateDistanceY()
         let distanceX = this.calculateDistanceX()
-        let moveY = false
-        let moveX = true
+        // console.log(`X:${distanceX}`)
+        // console.log(`Y:${distanceY}`)
 
-        if (distanceY < 0 && moveX) {
+        if ( distanceY < 0 ) {
             this.direction = -1
             this.verticalMove()
-            moveY = true
-            moveX = false
-        }
-        if (distanceY > 0 && moveX) {
+        } else if ( distanceY > 0 ) {
             this.direction = 1
             this.verticalMove()
-            moveY = true
-            moveX = false
         }
-
-        if (distanceX < 0 && moveY) {
+        
+        if ( distanceX < 0 ) {
             this.direction = -1
             this.horizontalMove()
-            moveY = false
-            moveX = true
-        }
-        if (distanceX > 0 && moveY) {
+        } else if (distanceX > 0 ) {
             this.direction = 1
             this.horizontalMove()
-            moveY = false
-            moveX = true
-        }
-    }
-
-    checkCollision() {
-        if (this.x < (this.player.x + this.player.width) &&
-            (this.x + this.width) > this.player.x &&
-            this.y < (this.player.y + this.player.height) &&
-            (this.y + this.height) > this.player.y) {
-            console.log('Ouch!!')
         }
     }
 }
