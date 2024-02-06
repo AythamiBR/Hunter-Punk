@@ -113,7 +113,6 @@ p{
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    border: 1px solid black;
 }
 
 .enemy{
@@ -123,7 +122,6 @@ p{
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    border: 1px solid black;
 }
 .treasure {
     position: absolute;
@@ -133,7 +131,7 @@ p{
     background-size: contain;
     background-repeat: no-repeat;
 }
-.pista-trampa{
+.clue-cheat{
     position: absolute;
     width: 60px;
     height: 100px;

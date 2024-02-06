@@ -1,29 +1,29 @@
-class Pista{
+class Clue{ //pista
     constructor(x, y, parent) {
         this.x = x
         this.y = y
         this.parent = parent
     }
 
-    insertPista() {
+    insertClue() {
         let treasure = document.createElement('div')
-        treasure.classList.add('pista-trampa')
+        treasure.classList.add('clue-cheat')
         treasure.style.top = this.y + 'px'
         treasure.style.left = this.x + 'px'
         this.parent.appendChild(treasure)
     }
 }
 
-class Trampa {
+class Cheat { //trampa
     constructor(x, y, parent) {
         this.x = x
         this.y = y
         this.parent = parent
     }
     
-    insertTrampa() {
+    insertCheat() {
         let treasure = document.createElement('div')
-        treasure.classList.add('pista-trampa')
+        treasure.classList.add('clue-cheat')
         treasure.style.top = this.y + 'px'
         treasure.style.left = this.x + 'px'
         this.parent.appendChild(treasure)

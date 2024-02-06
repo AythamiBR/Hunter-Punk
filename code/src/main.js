@@ -22,41 +22,13 @@ function countDown() {
 // DENTRO DEL MAPA
 const map = document.getElementById('map') //MAPA
 
-
-// 3) ENEMIES
-//let enemy = new Enemy(300, 300, map, player) // creamos una instancia para el enemigo 
-//let enemy2 = new Enemy(600, 600, map, player)
-//enemy.insertEnemy() //intersamos el enemigo en el DOM 
-//enemy2.insertEnemy()
-
-// 4) PISTA-TRAMPA
-let randomXPista = Math.floor(Math.random() * 1110)
-let randomYPista = Math.floor(Math.random() * 700)
-let randomXTrampa = Math.floor(Math.random() * 1110)
-let randomYTrampa = Math.floor(Math.random() * 700)
-let pista = new Pista(randomXPista, randomYPista, map)
-let trampa = new Trampa(randomXTrampa, randomYTrampa, map)
-pista.insertPista()
-trampa.insertTrampa()
-
-
-
-
-function move(){ //PARA MOVER JUGADOR Y ENEMIGOS
-    player.movePlayer()
-   // enemy.followPlayer()
-    //enemy2.followPlayer()
-    treasure.checkCollision()
-
-}
-
-//let intervalId = setInterval(move, 24) //UNICO INTERVALO
-
 class Game {
     constructor() {
         this.player = new Player(0, 0, map)
         this.enemy = new Enemy(600, 600, map, this.player)
         this.treasure = new Treasure(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.clue = new Clue(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.cheat = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.gameTimer = null
     }
 
@@ -103,6 +75,8 @@ class Game {
         this.player.insertPlayer()
         this.enemy.insertEnemy()
         this.treasure.insertTreasure()
+        this.clue.insertClue()
+        this.cheat.insertCheat()
     }
 
     // COLLISIONS
@@ -118,6 +92,18 @@ class Game {
             (this.enemy.x + this.enemy.width) > this.player.x &&
             this.enemy.y < (this.player.y + this.player.height) &&
             (this.enemy.y + this.enemy.height) > this.player.y)
+    }
+    checkCollisionPlayerClue() {
+        return (this.clue.x < (this.player.x + this.player.width) &&
+            (this.clue.x + this.clue.width) > this.player.x &&
+            this.clue.y < (this.player.y + this.player.height) &&
+            (this.clue.y + this.clue.height) > this.player.y)
+    }
+    checkCollisionPlayerCheat() {
+        return (this.cheat.x < (this.player.x + this.player.width) &&
+            (this.cheat.x + this.cheat.width) > this.player.x &&
+            this.cheat.y < (this.player.y + this.player.height) &&
+            (this.cheat.y + this.cheat.height) > this.player.y)
     }
 
     // GAME START
@@ -136,14 +122,12 @@ class Game {
 
         this.gameTimer = setInterval(() => {
             this.player.movePlayer()
-            if (!this.enemy.pause) this.enemy.followPlayer()
-            console.log(`player Y : ${this.player.y}`)
-            console.log(`enemy Y: ${this.enemy.y}`)
+            this.enemy.followPlayer()
 
             if(!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
-                let lives = this.player.removeLife()
-
-                if (lives === 0)  {
+                this.player.removeLife()
+                alert('has perdido una vida, te quedan:' + this.player.lives)
+                if (this.player.lives === 0)  {
                     this.lose()
                 } else {
                     this.enemy.pause = true
@@ -154,6 +138,8 @@ class Game {
 
             }
             if (this.checkCollisionPlayerTreasure()) this.win()
+            if (this.checkCollisionPlayerClue()) //this.win()
+            if (this.checkCollisionPlayerCheat()) this.player.removeLife()
             
         }, 20)
     }

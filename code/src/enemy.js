@@ -48,8 +48,6 @@ class Enemy {
     followPlayer() {
         let distanceY = this.calculateDistanceY()
         let distanceX = this.calculateDistanceX()
-        // console.log(`X:${distanceX}`)
-        // console.log(`Y:${distanceY}`)
 
         if ( distanceY < 0 ) {
             this.direction = -1
