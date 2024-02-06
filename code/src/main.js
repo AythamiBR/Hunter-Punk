@@ -122,7 +122,8 @@ class Game {
 
         this.gameTimer = setInterval(() => {
             this.player.movePlayer()
-            this.enemy.followPlayer()
+            if (!this.enemy.pause) this.enemy.followPlayer()
+
 
             if(!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
                 this.player.removeLife()
