@@ -15,36 +15,70 @@ body {
     margin-right: .6rem;
 }
 #start{
-    width: 1200px;
-    height: 800px;
-    text-align: center;
+    width: 150vh;
+    height: 100vh;
+    text-align: justify;
     margin: auto;
+    position: relative;
+    color: white;
+    font-size: 20px; 
+    letter-spacing: 1px;
+}
+#foto{
+    height: 650px;
+    width: 650px;
+    float: left;
     background-image: url("../assets/fondoStart.png");
     background-size: contain;
     background-repeat: no-repeat;
-    position: relative;
-    color: white;
-    font-size: x-large;
-    
-}
-#foto{
-    float: left;
+    position: absolute;
+    display: block;
+    border-radius: 10px;
 }
 #panel{
     float: right;
-    width: 350px;
+    width: 550px;
     text-align: center;
     justify-content: center;
 }
 #title{
-    color:#bc9b59
+    color:#bc9b59;
+    font-size: 70px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    letter-spacing: 20px;
+    margin: 20px;
+}
+p{
+    text-align: justify;
+    margin: 12px;
 }
 #input{
+    margin: 10px;
     padding: 5px;
-    height: 40px;
-    width: 300px;
-
-
+    height: 30px;
+    width: 100px;
+}
+#buttonStart{
+    width: 25vh;
+    height: 60px;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient();
+    background-image: linear-gradient(180deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
+    border: #2b2922;
+    margin: 10px;
+}
+#buttonStart:hover{
+    background-image: linear-gradient(90deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
+}
+#flechas{
+    width: 25vh;
+    margin: 0;
+    border-radius: 10px;
 }
 #map {
     width: 1200px;
