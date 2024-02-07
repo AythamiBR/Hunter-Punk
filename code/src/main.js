@@ -5,8 +5,8 @@ class Game {
         this.player = new Player(0, 0, map)
         this.enemy = new Enemy(600, 600, map, this.player)
         this.treasure = new Treasure(Math.floor(Math.random() * (1110 - 300) + 300), Math.floor(Math.random() * (700 -300) + 300), map)
-        this.clue = new Clue(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
-        this.cheat = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.cheat1 = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.cheat2 = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.gameTimer = null
         this.countDown
         this.life = new Lives(this.player.lives, document.getElementById('lives-wrapper'))
@@ -59,8 +59,8 @@ class Game {
         this.player.insertPlayer()
         this.enemy.insertEnemy()
         this.treasure.insertTreasure()
-        this.clue.insertClue()
-        this.cheat.insertCheat()
+        this.cheat1.insertCheat()
+        this.cheat2.insertCheat()
         this.countDown.start()
         this.life.insertLives()
     }
@@ -79,17 +79,19 @@ class Game {
             this.enemy.y < (this.player.y + this.player.height) &&
             (this.enemy.y + this.enemy.height) > this.player.y)
     }
-    checkCollisionPlayerClue() {
-        return (this.clue.x < (this.player.x + this.player.width) &&
-            (this.clue.x + this.clue.width) > this.player.x &&
-            this.clue.y < (this.player.y + this.player.height) &&
-            (this.clue.y + this.clue.height) > this.player.y)
+
+    checkCollisionPlayerCheat1() {
+        return (this.cheat1.x < (this.player.x + this.player.width) &&
+            (this.cheat1.x + this.cheat1.width) > this.player.x &&
+            this.cheat1.y < (this.player.y + this.player.height) &&
+            (this.cheat1.y + this.cheat1.height) > this.player.y)
     }
-    checkCollisionPlayerCheat() {
-        return (this.cheat.x < (this.player.x + this.player.width) &&
-            (this.cheat.x + this.cheat.width) > this.player.x &&
-            this.cheat.y < (this.player.y + this.player.height) &&
-            (this.cheat.y + this.cheat.height) > this.player.y)
+
+    checkCollisionPlayerCheat2() {
+        return (this.cheat2.x < (this.player.x + this.player.width) &&
+            (this.cheat2.x + this.cheat2.width) > this.player.x &&
+            this.cheat2.y < (this.player.y + this.player.height) &&
+            (this.cheat2.y + this.cheat2.height) > this.player.y)
     }
 
     // GAME START
@@ -117,15 +119,15 @@ class Game {
         this.life = new Lives(this.player.lives, document.getElementById('lives-wrapper'))
         this.enemy = new Enemy(600, 600, map, this.player)
         this.treasure = new Treasure(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
-        this.clue = new Clue(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
-        this.cheat = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.cheat1 = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.cheat2 = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.countDown = new Timer(1)
         this.compass = new Compass(this.player, this.treasure)
         this.player.insertPlayer()
         this.enemy.insertEnemy()
         this.treasure.insertTreasure()
-        this.clue.insertClue()
-        this.cheat.insertCheat()
+        this.cheat1.insertCheat()
+        this.cheat2.insertCheat()
         this.life.insertLives()
         this.countDown.start()
         this.start() 
@@ -135,8 +137,8 @@ class Game {
     start() {
         map.classList.remove('hidden')
         this.gameTimer = setInterval(() => {
-            this.player.movePlayer()
             this.compass.changeColor()
+
             if (!this.enemy.pause) this.enemy.followPlayer()
             if(!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
                 this.player.removeLife()
@@ -150,11 +152,15 @@ class Game {
                     }, 1000)
                 }
             }
-            if (this.checkCollisionPlayerTreasure()) this.win()
-            if (this.checkCollisionPlayerClue()) {
-                this.treasure.setAttribute('class', 'hidden')
+            if (!this.player.pause) this.player.movePlayer()
+            if(!this.player.pause && this.checkCollisionPlayerCheat1() || !this.player.pause && this.checkCollisionPlayerCheat2()) {
+                this.player.pause = true
+                setTimeout(() => {
+                    this.player.pause = false
+                }, 250)
             }
-            if (this.checkCollisionPlayerCheat()) this.player.removeLife()
+            if (this.checkCollisionPlayerTreasure()) this.win()
+            if(this.countDown.minutes === 0 && this.countDown.seconds === 0) this.lose()
             
         }, 20)
     }
@@ -162,17 +168,17 @@ class Game {
         let player = document.getElementById('player')
         let enemies = document.getElementsByClassName('enemy')
         let treasure = document.getElementsByClassName('treasure')
-        let clueCheat = document.getElementsByClassName('clue-cheat')
+        let cheat = document.getElementsByClassName('cheat')
         let lives = document.getElementsByClassName('heart')
         let wrapper = document.getElementById('lives-wrapper')
         this.player.lives = 0
         this.life.numsLifes = 0
         enemies = [...enemies]
-        clueCheat = [...clueCheat]
+        cheat = [...cheat]
         treasure = [...treasure]
         lives = [...lives]
         enemies.forEach(enemy => map.removeChild(enemy))
-        clueCheat.forEach(element => map.removeChild(element))
+        cheat.forEach(element => map.removeChild(element))
         treasure.forEach(element => map.removeChild(element))
         lives.forEach(element => wrapper.removeChild(element))
         map.removeChild(player)

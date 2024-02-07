@@ -35,7 +35,6 @@ class Enemy {
         let positionXPlayer = this.player.x
         let positionXEnemy = this.x
         return positionXPlayer - positionXEnemy
-        // let distance = Math.sqrt(Math.pow(Math.abs(distanceX),2 ) + Math.pow(Math.abs(distanceY), 2 ))
     }
 
     calculateDistanceY() {

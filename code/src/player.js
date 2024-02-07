@@ -11,6 +11,7 @@ class Player { //PROPIEDADES DEL JUGADOR
         this.sprite
         this.timerId
         this.lives = 3
+        this.pause = false
         //this.isDead = false
     }
 
