@@ -24,7 +24,7 @@ function insertWin(){
 
 insertWin()
 
-textWin.innerHTML = 'CONGRATULATIONS, YOU WIN!!! <br>'
+textWin.innerHTML = 'CONGRATULATIONS, YOU WIN!!! <br > <p style="margin: 5vw;color: white;font-size:2vw; text-align:center;">I knew you could so take your half and this medal for being so brave. <br> You are the real treasure hunter. </p>'
 buttonReset.innerText = 'RESET'
 
 buttonReset.addEventListener('click', () => {

@@ -11,39 +11,66 @@ body {
 #h{
     float: left;
     font-size: 4em;
-    line-height: 1;
+    line-height: .7;
     margin-right: .6rem;
 }
 #start{
-    width: 150vh;
+    width: 100vw;
     height: 100vh;
-    text-align: justify;
-    margin: auto;
+    margin: 0 auto;
     position: relative;
     color: white;
     font-size: 20px; 
     letter-spacing: 1px;
 }
 #foto{
-    height: 650px;
-    width: 650px;
-    float: left;
+    height: 69vh;
+    width: 30vw;
+    margin-left: 15vw;
     background-image: url("../assets/fondoStart.png");
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    display: block;
+    display: inline-block;
     border-radius: 10px;
 }
+#bad{
+    width: 25vw;
+    /*height: 10px;*/
+}
+#bad1{
+    background-image: url("../assets/enemy2.png");
+    width: 4vw;
+    height: 14vh;
+    display: inline-block;
+    margin: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#bad2{
+    width: 5vw;
+    height: 14vh;
+    background-image: url("../assets/pista-trampa.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 0;
+
+}
+
 #panel{
-    float: right;
-    width: 550px;
+    width: 30vw;
+    height: 50vh;
     text-align: center;
     justify-content: center;
+    display: inline-block;
+    float: right;
+    font-size: 1.2vw;
+    margin-right: 15vw;
 }
 #title{
     color:#bc9b59;
-    font-size: 70px;
+    font-size: 5vw;
     text-align: center;
     font-weight: bold;
     display: block;
@@ -52,7 +79,7 @@ body {
 }
 p{
     text-align: justify;
-    margin: 12px;
+    margin: 0;
 }
 #input{
     margin: 10px;
@@ -62,7 +89,6 @@ p{
 }
 #buttonStart{
     width: 25vh;
-    height: 60px;
     border-radius: 10px;
     font-size: larger;
     font-weight: bold;
@@ -76,7 +102,7 @@ p{
 }
 #flechas{
     width: 25vh;
-    margin: 0;
+    margin: 5px;
     border-radius: 10px;
 }
 #map {
@@ -158,11 +184,10 @@ p{
     background-repeat: no-repeat;
 }
 #winScreen{
-    padding-top: 200px;
-    position:absolute;
+    position: absolute;
     margin: 0 auto;
-    width: 90vw;
-    height: 75vh;
+    width: 100vw;
+    height: 100vh;
     background-color: black;
     text-align: center;
     /*top: 100px;
@@ -177,16 +202,16 @@ p{
     justify-content: center;
 }
 #textWin{
-    font-size: 50px;
-    padding: 10px;
-    margin: 20px;
+    font-size: 5vw;
+    padding: 2vw;
+    margin: 2vw;
     text-align: center;
     color: #bc9b59;
     display: block;
 }
 #medal{
-    width: 150px;
-    height: 150px;
+    width: 10vw;
+    height: 10vh;
     background-image: url("../assets/medal-removebg-preview.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -195,10 +220,10 @@ p{
 }
 
 #buttonReset{
-    width: 10%;
+    width: 10vw;
     height: 60px;
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bold;
     letter-spacing: 3px;
     background-image: linear-gradient(180deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
@@ -267,9 +292,11 @@ p{
 }
 
 #compass-color {
-    width: 100px;
-    height: 100px;
-    margin: 20px auto;
+    width: 150px;
+    height: 150px;
+    margin:  auto;
     border-radius: 50%;
-    background: blue;
+    background-image: url('../assets/Brújula.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }

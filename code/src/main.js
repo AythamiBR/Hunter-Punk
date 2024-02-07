@@ -4,7 +4,7 @@ class Game {
     constructor() {
         this.player = new Player(0, 0, map)
         this.enemy = new Enemy(600, 600, map, this.player)
-        this.treasure = new Treasure(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
+        this.treasure = new Treasure(Math.floor(Math.random() * (1110 - 300) + 300), Math.floor(Math.random() * (700 -300) + 300), map)
         this.clue = new Clue(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.cheat = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.gameTimer = null
@@ -151,7 +151,7 @@ class Game {
                     this.enemy.pause = true
                     setTimeout(() => {
                         this.enemy.pause = false
-                    }, 3000)
+                    }, 1000)
                 }
             }
             if (this.checkCollisionPlayerTreasure()) this.win()

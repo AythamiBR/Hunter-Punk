@@ -15,10 +15,14 @@ class Compass {
 
     changeColor() {
         this.calculateDistance()
-        if (this.distance >= 600) this.sprite.style.backgroundColor = 'blue'
-        else if (this.distance <= 400 && this.distance >= 250) this.sprite.style.backgroundColor = 'orange'
+        if (this.distance >= 600){
+            this.sprite.style.backgroundImage = "url(./assets/Brújula.png)"
+        }  
+        else if (this.distance <= 400 && this.distance >= 250) {
+            this.sprite.style.backgroundImage = "url(./assets/Brújula_cerca.png)"
+        }
         else if (this.distance < 150) {
-            this.sprite.style.backgroundColor = 'red'
+            this.sprite.style.backgroundImage = "url(./assets/Brújula_muy_cerca.png)"
             this.treasure.treasureFound()
         }
     }

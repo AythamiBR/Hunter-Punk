@@ -17,7 +17,7 @@ function insertGameOver() {
 
 insertGameOver()
 
-textGameOver.innerHTML = 'SORRY, YOU LOSE. GOOD LUCK NEXT TIME!!!'
+textGameOver.innerHTML = 'GAME OVER <p style="color: white;font-size:2vw; text-align:center;">Sorry. Good luck the next time. Never give up!</p>'
 buttonTryAgain.innerText = 'TRY AGAIN'
 
 buttonTryAgain.addEventListener('click', () => {
