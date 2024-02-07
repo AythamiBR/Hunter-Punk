@@ -22,11 +22,13 @@ class Game {
                 case 'A':
                 case 'ArrowLeft':
                     this.player.directionX = -1
+                    this.player.sprite.style.backgroundImage = "url('./assets/playeLeft.png')"
                     break
                 case 'd':
                 case 'D':
                 case 'ArrowRight':
                     this.player.directionX = 1
+                    this.player.sprite.style.backgroundImage = "url('./assets/player.png')"
                     break
                 case 'w':
                 case 'W':
@@ -183,5 +185,3 @@ class Game {
 }
 
 const game = new Game()
-
-
