@@ -94,7 +94,6 @@ class Game {
 
     // GAME START
     win() {
-        console.log('gane')
         const winScreen = document.getElementById('winScreen')
         clearInterval(this.gameTimer)
         this.stopGame()
@@ -115,10 +114,6 @@ class Game {
         this.player.lives = 3
         this.life.numsLifes = 3
 
-        console.log(this.player.lives)
-
-        console.log(this.life.numsLifes)
-
         this.life = new Lives(this.player.lives, document.getElementById('lives-wrapper'))
         this.enemy = new Enemy(600, 600, map, this.player)
         this.treasure = new Treasure(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
@@ -138,6 +133,7 @@ class Game {
     }
 
     start() {
+        map.classList.remove('hidden')
         this.gameTimer = setInterval(() => {
             this.player.movePlayer()
             this.compass.changeColor()
@@ -171,7 +167,6 @@ class Game {
         let wrapper = document.getElementById('lives-wrapper')
         this.player.lives = 0
         this.life.numsLifes = 0
-        console.log(this.player.lives)
         enemies = [...enemies]
         clueCheat = [...clueCheat]
         treasure = [...treasure]
@@ -181,6 +176,7 @@ class Game {
         treasure.forEach(element => map.removeChild(element))
         lives.forEach(element => wrapper.removeChild(element))
         map.removeChild(player)
+        map.classList.add('hidden')
     }
 }
 

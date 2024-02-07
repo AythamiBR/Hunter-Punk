@@ -65,7 +65,7 @@ body {
     justify-content: center;
     display: inline-block;
     float: right;
-    font-size: 1.2vw;
+    font-size: 1vw;
     margin-right: 15vw;
 }
 #title{
@@ -299,4 +299,15 @@ p{
     background-image: url('../assets/Brújula.png');
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+#compass-color2 {
+    width: 7vw;
+    height: 13vh;
+    margin: 0;
+    background-image: url('../assets/Brújula.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+
 }

@@ -10,7 +10,6 @@ class Compass {
         let distanceX = this.player.x - this.treasure.x
         let distanceY = this.player.y - this.treasure.y
         this.distance = parseInt(Math.sqrt(Math.pow(Math.abs(distanceX), 2) + Math.pow(Math.abs(distanceY), 2)))
-        console.log(this.distance)
     }
 
     changeColor() {
