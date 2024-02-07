@@ -9,6 +9,8 @@ class Game {
         this.cheat = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.gameTimer = null
         this.countDown
+        this.life = new Lives(this.player.lives, document.getElementById('lives-wrapper'))
+        this.compass = new Compass(this.player, this.treasure)
     }
 
     // GAME SETUP
@@ -58,6 +60,7 @@ class Game {
         this.clue.insertClue()
         this.cheat.insertCheat()
         this.countDown.start()
+        this.life.insertLives()
     }
 
     // COLLISIONS
@@ -89,43 +92,57 @@ class Game {
 
     // GAME START
     win() {
+        console.log('gane')
         const winScreen = document.getElementById('winScreen')
         clearInterval(this.gameTimer)
         this.stopGame()
         this.countDown.stop()
         winScreen.removeAttribute('class','hidden')
-        //alert('You Win')
     }
 
     lose() {
+        const gameOverScreen = document.getElementById('gameOverScreen')
         clearInterval(this.gameTimer)
+        this.stopGame()
         this.countDown.stop()
-        //alert('You Lose')
+        gameOverScreen.classList.remove('hidden')
     }
 
     reset(){
         this.player = new Player(0, 0, map)
+        this.player.lives = 3
+        this.life.numsLifes = 3
+
+        console.log(this.player.lives)
+
+        console.log(this.life.numsLifes)
+
+        this.life = new Lives(this.player.lives, document.getElementById('lives-wrapper'))
         this.enemy = new Enemy(600, 600, map, this.player)
         this.treasure = new Treasure(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.clue = new Clue(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.cheat = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.countDown = new Timer(1)
+        this.compass = new Compass(this.player, this.treasure)
         this.player.insertPlayer()
         this.enemy.insertEnemy()
         this.treasure.insertTreasure()
         this.clue.insertClue()
         this.cheat.insertCheat()
+        this.life.insertLives()
         this.countDown.start()
         this.start() 
+
     }
 
     start() {
         this.gameTimer = setInterval(() => {
             this.player.movePlayer()
+            this.compass.changeColor()
             if (!this.enemy.pause) this.enemy.followPlayer()
             if(!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
                 this.player.removeLife()
-                alert('has perdido una vida, te quedan:' + this.player.lives)
+                this.life.removeLives()
                 if (this.player.lives === 0) {
                     this.lose()
                 } else {
@@ -134,7 +151,6 @@ class Game {
                         this.enemy.pause = false
                     }, 3000)
                 }
-
             }
             if (this.checkCollisionPlayerTreasure()) this.win()
             if (this.checkCollisionPlayerClue()) {
@@ -149,12 +165,19 @@ class Game {
         let enemies = document.getElementsByClassName('enemy')
         let treasure = document.getElementsByClassName('treasure')
         let clueCheat = document.getElementsByClassName('clue-cheat')
+        let lives = document.getElementsByClassName('heart')
+        let wrapper = document.getElementById('lives-wrapper')
+        this.player.lives = 0
+        this.life.numsLifes = 0
+        console.log(this.player.lives)
         enemies = [...enemies]
         clueCheat = [...clueCheat]
         treasure = [...treasure]
+        lives = [...lives]
         enemies.forEach(enemy => map.removeChild(enemy))
         clueCheat.forEach(element => map.removeChild(element))
         treasure.forEach(element => map.removeChild(element))
+        lives.forEach(element => wrapper.removeChild(element))
         map.removeChild(player)
     }
 }

@@ -5,6 +5,8 @@ class Treasure {
         this.parent = parent
         this.width = 70
         this.height = 70
+        this.index = -1
+        this.sprite
     }
 
     insertTreasure() {
@@ -12,7 +14,14 @@ class Treasure {
         treasure.classList.add('treasure')
         treasure.style.top = this.y + 'px'
         treasure.style.left = this.x + 'px'
+        treasure.style.zIndex = this.index
         this.parent.appendChild(treasure)
+        this.sprite = treasure
     }
-    
+
+    treasureFound() {
+        this.index = 1
+        this.sprite.style.zIndex = this.index
+    }
+
 }

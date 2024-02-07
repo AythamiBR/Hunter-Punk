@@ -94,7 +94,7 @@ p{
     text-align: center;
 }
 #timer {
-    float: right;
+   /* float: right;*/
     width: 200px;
     height: 200px;
     line-height: 50px;
@@ -129,6 +129,23 @@ p{
     width: 70px;
     height: 70px;
     background-image: url("../assets/treasure.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+#lives-wrapper {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.heart {
+    width: 50px;
+    height: 50px;
+    background-image: url("../assets/heart.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -200,4 +217,59 @@ p{
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
+}
+#gameOverScreen{
+    padding-top: 200px;
+    position: absolute;
+    margin: 0 auto;
+    width: 90vw;
+    height: 75vh;
+    background-color: black;
+    text-align: center;
+    /*top: 100px;
+    left: 105px;*/
+    border-radius: 10px;
+    letter-spacing: 2px;
+    /*background-image: linear-gradient(180deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);*/
+    border: #2b2922;
+    font-weight: bold;
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+#textGameOver{
+    font-size: 50px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    color: #bc9b59;
+    display: block;
+}
+#buttonTryAgain {
+    width: 20%;
+    height: 60px;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    background-image: linear-gradient(180deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
+    border: #2b2922;
+    position: absolute;
+    margin: 20px;
+}
+
+#buttonTryAgain:hover {
+    background-image: linear-gradient(90deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
+}
+#compass {
+    height: 200px;
+    width: 200px;
+}
+
+#compass-color {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: blue;
 }

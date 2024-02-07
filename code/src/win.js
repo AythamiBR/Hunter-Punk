@@ -28,9 +28,6 @@ textWin.innerHTML = 'CONGRATULATIONS, YOU WIN!!! <br>'
 buttonReset.innerText = 'RESET'
 
 buttonReset.addEventListener('click', () => {
-   // map.removeAttribute('class', 'hidden')
-    //info.removeAttribute('class', 'hidden')
-   // start.setAttribute('class', 'hidden')
     winScreen.setAttribute('class', 'hidden')
     game.reset()
 })
