@@ -101,6 +101,10 @@ class Game {
         this.stopGame()
         this.countDown.stop()
         winScreen.removeAttribute('class','hidden')
+        const audio = new Audio("./sounds/win.mp3");
+        audio.loop = true;
+        audio.controls = true;
+        audio.play();
     }
 
     lose() {
@@ -109,6 +113,10 @@ class Game {
         this.stopGame()
         this.countDown.stop()
         gameOverScreen.classList.remove('hidden')
+        const audio = new Audio("./sounds/gameOver.mp3");
+        audio.loop = true;
+        audio.controls = true;
+        audio.play();
     }
 
     reset(){
@@ -131,6 +139,8 @@ class Game {
         this.life.insertLives()
         this.countDown.start()
         this.start() 
+        this.lose.audio.loop = false
+        this.lose.audio.pause()
 
     }
 
@@ -139,7 +149,7 @@ class Game {
         this.gameTimer = setInterval(() => {
             this.compass.changeColor()
 
-            if (!this.enemy.pause) this.enemy.followPlayer()
+            if (!this.enemy.pause) //this.enemy.followPlayer()
             if(!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
                 this.player.removeLife()
                 this.life.removeLives()

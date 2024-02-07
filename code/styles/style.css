@@ -160,7 +160,7 @@ p{
     z-index: 0;
 }
 #lives-wrapper {
-    height: 200px;
+    height: 120px;
     width: 200px;
     display: flex;
     flex-direction: row;
@@ -169,8 +169,8 @@ p{
     gap: 10px;
 }
 .heart {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background-image: url("../assets/heart.png");
     background-size: contain;
     background-repeat: no-repeat;
