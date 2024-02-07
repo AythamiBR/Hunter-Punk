@@ -67,7 +67,6 @@ p{
     font-size: larger;
     font-weight: bold;
     letter-spacing: 2px;
-    background: linear-gradient();
     background-image: linear-gradient(180deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
     border: #2b2922;
     margin: 10px;
@@ -83,10 +82,12 @@ p{
 #map {
     width: 1200px;
     height: 800px;
-    background-color: #85FFBD;
-    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    /* background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%); */
+    background-image: url("../assets/bg.png");
     margin: auto;
     position: relative;
+    border-radius: 10px;
 }
 #info {
     margin: auto;
@@ -138,4 +139,65 @@ p{
     background-image: url("../assets/pista-trampa.png");
     background-size: contain;
     background-repeat: no-repeat;
+}
+#winScreen{
+    padding-top: 200px;
+    position:absolute;
+    margin: 0 auto;
+    width: 90vw;
+    height: 75vh;
+    background-color: black;
+    text-align: center;
+    /*top: 100px;
+    left: 105px;*/
+    border-radius: 10px;
+    letter-spacing: 2px;
+    /*background-image: linear-gradient(180deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);*/
+    border: #2b2922;
+    font-weight: bold;
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+#textWin{
+    font-size: 50px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    color: #bc9b59;
+    display: block;
+}
+#medal{
+    width: 150px;
+    height: 150px;
+    background-image: url("../assets/medal-removebg-preview.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding: 20px;
+}
+
+#buttonReset{
+    width: 10%;
+    height: 60px;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    background-image: linear-gradient(180deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
+    border: #2b2922;
+    position: absolute;
+    margin: 20px;
+}
+#buttonReset:hover {
+    background-image: linear-gradient(90deg, #5a5227 0%, #caba7d 50%, #2b2922 100%);
+}
+#playerImage{
+    background-image: url("../assets/player.png");
+    width: 174px;
+    height: 200px;
+   /* position: absolute;*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
 }

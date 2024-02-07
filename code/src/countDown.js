@@ -18,10 +18,11 @@ class Timer {
     }
 
     start () {
+        this.countDown()
         this.timerId = setInterval(()=> this.countDown(),1000)
     }
 
     stop () { 
-        clearInterval(this.timerId)     
+        clearInterval(this.timerId) 
     }
 }
