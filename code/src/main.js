@@ -17,6 +17,7 @@ class Game {
         this.audioEnemy = new Audio("./sounds/enemy.mp3")
         this.audioCheat = new Audio("./sounds/cheat.wav")
         this.audioGameOver = new Audio("./sounds/gameover.mp3")
+        this.audioEnemyDetected = new Audio("./sounds/enemydetected.mp3")
 
     }
 
@@ -106,6 +107,7 @@ class Game {
         this.audioMap.pause()
         this.audioCheat.pause()
         this.audioEnemy.pause()
+        this.audioEnemyDetected.pause()
         this.audioWin.play()
         const winScreen = document.getElementById('winScreen')
         clearInterval(this.gameTimer)
@@ -118,6 +120,7 @@ class Game {
         this.audioMap.pause()
         this.audioCheat.pause()
         this.audioEnemy.pause()
+        this.audioEnemyDetected.pause()
         this.audioGameOver.play()
         const gameOverScreen = document.getElementById('gameOverScreen')
         clearInterval(this.gameTimer)
@@ -131,7 +134,6 @@ class Game {
         this.audioWin.pause();
         this.audioGameOver.pause()
 
-        
         this.player = new Player(0, 0, map)
         this.player.lives = 3
         this.life.numsLifes = 3
@@ -153,7 +155,6 @@ class Game {
         this.countDown.start()
         this.start() 
 
-
     }
 
     start() {
@@ -167,13 +168,17 @@ class Game {
             
 
             if (!this.enemy.pause) this.enemy.followPlayer()
-            if(!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
+            if (!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
                 this.player.removeLife()
                 this.life.removeLives()
                 this.audioEnemy.play()
+
+                //this.audioEnemyDetected.play()
                 if (this.player.lives === 0) {
                     this.lose()
+
                 } else {
+                    
                     this.enemy.pause = true
                     setTimeout(() => {
                         this.enemy.pause = false
@@ -204,9 +209,11 @@ class Game {
             if (!this.player.pause) this.player.movePlayer()
             if(!this.player.pause && this.checkCollisionPlayerCheat1() || !this.player.pause && this.checkCollisionPlayerCheat2()) {
                 this.player.pause = true
+                this.player.sprite.style.backgroundImage = "url('./assets/impactplayer.png')"
                 this.audioCheat.play()
                 setTimeout(() => {
                     this.player.pause = false
+                    this.player.sprite.style.backgroundImage = "url(./assets/player.png)"
                 }, 250)
             }
             if (this.checkCollisionPlayerTreasure() && !this.treasure.colision) {

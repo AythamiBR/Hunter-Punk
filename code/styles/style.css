@@ -114,6 +114,7 @@ p{
     margin: auto;
     position: relative;
     border-radius: 10px;
+    border-image: url("../assets/stoneborder.png");
 }
 #info {
     margin: auto;
