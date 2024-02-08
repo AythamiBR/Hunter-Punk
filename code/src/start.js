@@ -1,12 +1,12 @@
 const buttonStart = document.getElementById('buttonStart')
 const start = document.getElementById('start') //winStart
 const info = document.getElementById('info')
-let audio1
 
-// window.addEventListener('DOMContentLoaded', (e) => {
-//     audio1 = document.getElementById('audioIntro')
-
-// })
+const audioStart = new Audio("./sounds/intro.wav")
+//audioStart.controls = true
+audioStart.loop = true
+audioStart.autoplay = true
+audioStart.play()
 
 buttonStart.addEventListener('click', () => {
     map.removeAttribute('class', 'hidden')
@@ -14,6 +14,5 @@ buttonStart.addEventListener('click', () => {
     start.setAttribute('class', 'hidden')
     game.initialize()
     game.start()
-    //audio1.pause()
 })
 

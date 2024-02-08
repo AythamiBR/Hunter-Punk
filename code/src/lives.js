@@ -20,6 +20,7 @@ class Lives {
         if (this.lives.length > 0) {
             this.lives.pop()
             this.parent.removeChild(this.parent.lastChild)
+            
         }
     }
 }
