@@ -7,6 +7,7 @@ class Treasure {
         this.height = 70
         this.index = -1
         this.sprite
+        this.colision = false
     }
 
     insertTreasure() {
@@ -20,6 +21,7 @@ class Treasure {
     }
 
     treasureFound() {
+        this.sprite.classList.add('fade-in')
         this.index = 1
         this.sprite.style.zIndex = this.index
     }

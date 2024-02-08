@@ -178,7 +178,28 @@ class Game {
                     setTimeout(() => {
                         this.enemy.pause = false
                     }, 1000)
+
+                    let distanceX = this.player.x - this.enemy.x
+                    let distanceY = this.player.y - this.enemy.y
+                    console.log(distanceX)
+                    console.log(distanceY)
+                    if (distanceX > 0 ) {
+                        this.player.x += 90
+                        this.player.style.left = `${this.player.x}+px`
+                    }else{
+                        this.player.x -= 90
+                       this.player.style.left = `${this.player.x}+px`
+                    }
+                    if (distanceY > 0 ) {
+                        this.player.y += 90
+                        this.player.style.top = `${this.player.y}+px`
+                    }else{
+                        this.player.y -= 90
+                       this.player.style.top = `${this.player.y}+px`
+                    }
                 }
+
+
             }
             if (!this.player.pause) this.player.movePlayer()
             if(!this.player.pause && this.checkCollisionPlayerCheat1() || !this.player.pause && this.checkCollisionPlayerCheat2()) {
@@ -188,7 +209,10 @@ class Game {
                     this.player.pause = false
                 }, 250)
             }
-            if (this.checkCollisionPlayerTreasure()) this.win()
+            if (this.checkCollisionPlayerTreasure() && !this.treasure.colision) {
+                this.treasure.colision = true
+                setTimeout(()=> {this.win()},1000)
+            }
             if(this.countDown.minutes === 0 && this.countDown.seconds === 0) this.lose()
             
         }, 20)
