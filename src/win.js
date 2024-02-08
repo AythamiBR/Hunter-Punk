@@ -1,11 +1,9 @@
 const body = document.querySelector('body')
-
 const winScreen = document.createElement('div')
 const textWin = document.createElement('p')
 const medal = document.createElement('div')
 const playerImage = document.createElement('div')
 const buttonReset = document.createElement('button')
-
 winScreen.setAttribute('id', 'winScreen')
 textWin.setAttribute('id', 'textWin')
 medal.setAttribute('id', 'medal')

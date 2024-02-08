@@ -1,4 +1,4 @@
-const map = document.getElementById('map') //MAPA
+const map = document.getElementById('map') 
 
 class Game {
     constructor() {
@@ -11,7 +11,6 @@ class Game {
         this.countDown
         this.life = new Lives(this.player.lives, document.getElementById('lives-wrapper'))
         this.compass = new Compass(this.player, this.treasure)
-
         this.audioMap = new Audio("./sounds/map.mp3")
         this.audioWin = new Audio("./sounds/winner.mp3")
         this.audioEnemy = new Audio("./sounds/enemy.mp3")
@@ -23,8 +22,7 @@ class Game {
 
     // GAME SETUP
     bindKeys() {
-        //AL PULSAR TECLAS
-        window.addEventListener('keydown', (e) => { //cuando pulsamos teclas
+        window.addEventListener('keydown', (e) => { 
             switch (e.key) {
                 case 'a':
                 case 'A':
@@ -51,7 +49,7 @@ class Game {
             }
         })
 
-        window.addEventListener('keyup', (e) => { //CUANDO DEJAMOS DE PULSAR
+        window.addEventListener('keyup', (e) => {
             if (e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft' || e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') {
                 this.player.directionX = 0
             }
@@ -127,17 +125,14 @@ class Game {
         this.stopGame()
         this.countDown.stop()
         gameOverScreen.classList.remove('hidden')
-
      }
 
     reset(){
         this.audioWin.pause();
         this.audioGameOver.pause()
-
         this.player = new Player(0, 0, map)
         this.player.lives = 3
         this.life.numsLifes = 3
-
         this.life = new Lives(this.player.lives, document.getElementById('lives-wrapper'))
         this.enemy = new Enemy(600, 600, map, this.player)
         this.treasure = new Treasure(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
@@ -145,7 +140,6 @@ class Game {
         this.cheat2 = new Cheat(Math.floor(Math.random() * 1110), Math.floor(Math.random() * 700), map)
         this.countDown = new Timer(1)
         this.compass = new Compass(this.player, this.treasure)
-
         this.player.insertPlayer()
         this.enemy.insertEnemy()
         this.treasure.insertTreasure()
@@ -154,43 +148,31 @@ class Game {
         this.life.insertLives()
         this.countDown.start()
         this.start() 
-
     }
 
     start() {
         map.classList.remove('hidden')
         audioStart.pause()
-        this.audioMap.loop = true;
-        this.audioMap.play();
-
+        this.audioMap.loop = true
+        this.audioMap.play()
         this.gameTimer = setInterval(() => {
             this.compass.changeColor()
-            
-
-            if (!this.enemy.pause) this.enemy.followPlayer()
+            if (!this.enemy.pause) this.enemy.followPlayer() //Enemy
             if (!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
                 this.player.sprite.classList.add('filter2')
                 this.player.removeLife()
                 this.life.removeLives()
                 this.audioEnemy.play()
-
-                //this.audioEnemyDetected.play()
                 if (this.player.lives === 0) {
                     this.lose()
-
                 } else {
-                    
                     this.enemy.pause = true
                     setTimeout(() => {
                         this.enemy.pause = false
                         this.player.sprite.classList.remove('filter2')
-
                     }, 1000)
-
                     let distanceX = this.player.x - this.enemy.x
                     let distanceY = this.player.y - this.enemy.y
-                    console.log(distanceX)
-                    console.log(distanceY)
                     if (distanceX > 0 ) {
                         this.player.x += 90
                         this.player.style.left = `${this.player.x}+px`
@@ -206,10 +188,9 @@ class Game {
                        this.player.style.top = `${this.player.y}+px`
                     }
                 }
-
-
             }
-            if (!this.player.pause) this.player.movePlayer()
+
+            if (!this.player.pause) this.player.movePlayer() //Cheats
             if(!this.player.pause && this.checkCollisionPlayerCheat1() || !this.player.pause && this.checkCollisionPlayerCheat2()) {
                 this.player.pause = true
                 this.player.sprite.classList.add('filter1')
@@ -219,14 +200,14 @@ class Game {
                     this.player.sprite.classList.remove('filter1')
                 }, 250)
             }
-            if (this.checkCollisionPlayerTreasure() && !this.treasure.colision) {
+            if (this.checkCollisionPlayerTreasure() && !this.treasure.colision) { //Treasure
                 this.treasure.colision = true
                 setTimeout(()=> {this.win()},1000)
             }
             if(this.countDown.minutes === 0 && this.countDown.seconds === 0) this.lose()
-            
         }, 20)
     }
+
     stopGame(){
         let player = document.getElementById('player')
         let enemies = document.getElementsByClassName('enemy')
@@ -246,7 +227,6 @@ class Game {
         lives.forEach(element => wrapper.removeChild(element))
         map.removeChild(player)
         map.classList.add('hidden')
-        //audio.pause()
     }
 }
 

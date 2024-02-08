@@ -1,7 +1,6 @@
 const gameOverScreen = document.createElement('div')
 const textGameOver = document.createElement('p')
 const buttonTryAgain = document.createElement('button')
-
 gameOverScreen.setAttribute('id', 'gameOverScreen')
 textGameOver.setAttribute('id', 'textGameOver')
 buttonTryAgain.setAttribute('id', 'buttonTryAgain')

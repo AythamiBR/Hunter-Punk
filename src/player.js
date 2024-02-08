@@ -12,10 +12,9 @@ class Player { //PROPIEDADES DEL JUGADOR
         this.timerId
         this.lives = 3
         this.pause = false
-        //this.isDead = false
     }
 
-    insertPlayer() { //CREA E INSERTA AL JUGADOR EN EL DOM
+    insertPlayer() { 
         let player = document.createElement('div')
         player.setAttribute('id', 'player')
         player.style.top = this.y + 'px'
@@ -25,12 +24,12 @@ class Player { //PROPIEDADES DEL JUGADOR
      
     }
 
-    movePlayer() { //MECANICA DEL MOVIMIENTO
+    movePlayer() { 
         let nextX = this.x + this.speed * this.directionX
         let nextY = this.y + this.speed * this.directionY
         if (nextX >= 0 && nextX <= 1110 && nextY >= 0 && nextY <= 700) {
-            this.x += this.speed * this.directionX //actualizamos la x
-            this.sprite.style.left = this.x + 'px' //la cambiamos en el DOM
+            this.x += this.speed * this.directionX 
+            this.sprite.style.left = this.x + 'px' 
             this.y += this.speed * this.directionY
             this.sprite.style.top = this.y + 'px'
         }

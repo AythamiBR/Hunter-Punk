@@ -25,5 +25,4 @@ class Treasure {
         this.index = 1
         this.sprite.style.zIndex = this.index
     }
-
 }

@@ -48,7 +48,6 @@ class Enemy {
     followPlayer() {
         let distanceY = this.calculateDistanceY()
         let distanceX = this.calculateDistanceX()
-
         if ( distanceY < 0 ) {
             this.directionY = -1
             this.verticalMove()
@@ -56,7 +55,6 @@ class Enemy {
             this.directionY = 1
             this.verticalMove()
         }
-        
         if ( distanceX < 0 ) {
             this.directionX = -1
             this.horizontalMove()
