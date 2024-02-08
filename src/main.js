@@ -169,6 +169,7 @@ class Game {
 
             if (!this.enemy.pause) this.enemy.followPlayer()
             if (!this.enemy.pause && this.checkCollisionPlayerEnemy()) {
+                this.player.sprite.classList.add('filter2')
                 this.player.removeLife()
                 this.life.removeLives()
                 this.audioEnemy.play()
@@ -182,6 +183,8 @@ class Game {
                     this.enemy.pause = true
                     setTimeout(() => {
                         this.enemy.pause = false
+                        this.player.sprite.classList.remove('filter2')
+
                     }, 1000)
 
                     let distanceX = this.player.x - this.enemy.x
@@ -209,11 +212,11 @@ class Game {
             if (!this.player.pause) this.player.movePlayer()
             if(!this.player.pause && this.checkCollisionPlayerCheat1() || !this.player.pause && this.checkCollisionPlayerCheat2()) {
                 this.player.pause = true
-                this.player.sprite.style.backgroundImage = "url('./assets/impactplayer.png')"
+                this.player.sprite.classList.add('filter1')
                 this.audioCheat.play()
                 setTimeout(() => {
                     this.player.pause = false
-                    this.player.sprite.style.backgroundImage = "url(./assets/player.png)"
+                    this.player.sprite.classList.remove('filter1')
                 }, 250)
             }
             if (this.checkCollisionPlayerTreasure() && !this.treasure.colision) {

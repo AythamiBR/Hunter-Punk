@@ -5,6 +5,15 @@ body {
     display: flex;
     background-color: black;
 }
+.filter1{
+    filter: hue-rotate(200deg);
+    filter: drop-shadow(16px 16px 20px red) invert(75%);
+}
+.filter2{
+   /* filter: drop-shadow(16px 16px 20px rgb(30, 300, 36)) invert(75%);*/
+    /*filter: hue-rotate(250deg);*/
+    filter: drop-shadow(16px 16px 20px red);
+}
 .hidden{
     display: none;
 }
@@ -22,6 +31,7 @@ body {
     color: white;
     font-size: 20px; 
     letter-spacing: 1px;
+
 }
 #foto{
     height: 69vh;
