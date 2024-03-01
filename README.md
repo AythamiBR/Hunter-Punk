@@ -1,6 +1,6 @@
 
 <div align="center">
-![Hunter_punk](https://github.com/AythamiBR/Hunter-Punk/assets/156673431/3e77b6dc-d085-462d-923b-ff92dd324ff6)
+<img src="https://github.com/AythamiBR/Hunter-Punk/assets/156673431/3e77b6dc-d085-462d-923b-ff92dd324ff6)">
 
 
 <h1> Hunter Punk </h1>
