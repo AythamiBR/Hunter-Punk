@@ -1,6 +1,7 @@
 
 <div align="center">
- ![hunterPunk](./assets/hunterPunk_portada.mp4)
+![Hunter_punk](https://github.com/AythamiBR/Hunter-Punk/assets/156673431/3e77b6dc-d085-462d-923b-ff92dd324ff6)
+
 
 <h1> Hunter Punk </h1>
 
@@ -14,13 +15,10 @@ Are you worried? Don´t worry, **the compass will help you!**
 
 ### keys to move:
 
-You can move the player with the keyboard keys.
+![keyboard](https://github.com/AythamiBR/Hunter-Punk/assets/156673431/7940ef7c-35ca-4798-8f99-e3c66fa035b1)
 
-⬅️ ⬆️ ⬇️ ➡️
 
-Or with the keys
 
-🇦 🇼 🇸 🇩
 
 ### Play our Game:
 [Hunter Punk](https://aythamibr.github.io/Hunter-Punk/)
