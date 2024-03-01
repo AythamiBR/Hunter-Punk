@@ -17,7 +17,7 @@ Are you worried? Don´t worry, the compass will help you!
 ### Play our Game:
 [Hunter Punk](https://aythamibr.github.io/Hunter-Punk/)
 
-## Our Developer Team:
+### Our Developer Team:
 
 🧭 Aytami Baez 
 
