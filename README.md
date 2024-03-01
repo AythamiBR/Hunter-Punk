@@ -11,13 +11,13 @@ Embark on an epic treasure hunt adventure, every choice you make counts, time is
 
 Are you worried? Don´t worry, the compass will help you!
 
-###keys to move:
+#keys to move:
 ⬅️ ⬆️ ➡️
 
 #Play our Game:
 [Hunter Punk](https://aythamibr.github.io/Hunter-Punk/)
 
-###Our Developer Team:
+#Our Developer Team:
 🧭 Aytami Baez 
 🧭 Alexandra Mejias
 🧭 Yennyth Sánchez
