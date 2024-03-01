@@ -15,13 +15,13 @@ Are you worried? Don´t worry, the compass will help you!
 ⬅️ ⬆️ ➡️
 
 ### Play our Game:
-[Hunter Punk](https://aythamibr.github.io/Hunter-Punk/)
+![Hunter Punk](https://aythamibr.github.io/Hunter-Punk/)
 
 ### Our Developer Team:
 
-🧭 ![Aytami Baez](https://github.com/AythamiBR) 
+🧭 [Aytami Baez](https://github.com/AythamiBR) 
 
-🧭 ![Alexandra Mejias](https://github.com/AlexandraMH93)
+🧭 [Alexandra Mejias](https://github.com/AlexandraMH93)
 
 🧭 [Yennyth Sánchez](https://github.com/Yennsanpro)
 
