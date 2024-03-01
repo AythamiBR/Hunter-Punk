@@ -14,14 +14,12 @@ Are you worried? Don´t worry, **the compass will help you!**
 ### keys to move:
 
 You can move the player with the keyboard keys.
-
-⬅️ ⬆️ ⬇️ ➡️
+   ⬆️
+⬅️ ⬇️ ➡️
 
 Or with the keys
-
-🇦 🇼 🇸 🇩
-
-
+   🇼
+🇦 🇸 🇩
 
 ### Play our Game:
 [Hunter Punk](https://aythamibr.github.io/Hunter-Punk/)
