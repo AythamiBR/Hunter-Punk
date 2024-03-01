@@ -19,11 +19,11 @@ Are you worried? Don´t worry, the compass will help you!
 
 ### Our Developer Team:
 
-🧭 Aytami Baez 
+🧭 [Aytami Baez](https://github.com/AythamiBR) 
 
-🧭 Alexandra Mejias
+🧭 [Alexandra Mejias](https://github.com/AlexandraMH93)
 
-🧭 Yennyth Sánchez
+🧭 [Yennyth Sánchez](https://github.com/Yennsanpro)
 
 
 
