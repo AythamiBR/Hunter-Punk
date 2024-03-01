@@ -13,17 +13,17 @@
 
 Are you worried? Don´t worry, **the compass will help you!**
 
-### keys to move:
+## keys to move:
 
 ![keyboard](https://github.com/AythamiBR/Hunter-Punk/assets/156673431/7940ef7c-35ca-4798-8f99-e3c66fa035b1)
 
 
 
 
-### Play our Game:
+## Play our Game:
 [Hunter Punk](https://aythamibr.github.io/Hunter-Punk/)
 
-### Our Developer Team:
+## Our Developer Team:
 
 🧭 [Aytami Baez](https://github.com/AythamiBR) 
 
