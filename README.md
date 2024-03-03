@@ -25,7 +25,7 @@ Are you worried? Don´t worry, **the compass will help you!**
 
 ## Our Developer Team:
 
-🧭 [Aytami Baez](https://github.com/AythamiBR) 
+🧭 [Aythami Baez](https://github.com/AythamiBR) 
 
 🧭 [Alexandra Mejias](https://github.com/AlexandraMH93)
 
