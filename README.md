@@ -31,7 +31,7 @@ Are you worried? Don´t worry, **the compass will help you!**
 
 🧭 [Yennyth Sánchez](https://github.com/Yennsanpro)
 
- ![click here 
+ [Click here! 
 ](https://www.canva.com/design/DAF8Ak3J-88/sUQk4aYjkd21xiVSHsjLPA/view?utm_content=DAF8Ak3J-88&utm_campaign=designshare&utm_medium=link&utm_source=viewer) and enjoy our presentation
 
 
